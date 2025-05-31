@@ -125,30 +125,17 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Recensioni Google */}
-      <section className="px-6 py-16 bg-white">
+      {/* Recensioni Google – Embed Elfsight */}
+      <section className="px-6 py-16 bg-white text-center">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">Recensioni Google</h2>
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              name: "Giuseppe M.",
-              text: "Personale gentilissimo e super professionale. Ci tornerò sicuramente!",
-            },
-            {
-              name: "Laura P.",
-              text: "Mi hanno salvato da una foratura a fine giornata. Servizio top!",
-            },
-            {
-              name: "Alessandro R.",
-              text: "Prezzi onesti, puntualità e cortesia. Consigliato a tutti!",
-            },
-          ].map((review, i) => (
-            <div key={i} className="bg-gray-100 rounded-xl p-4 shadow text-left">
-              <p className="font-semibold">{review.name}</p>
-              <p className="text-sm mt-2">"{review.text}"</p>
-            </div>
-          ))}
-        </div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `
+              <script src="https://static.elfsight.com/platform/platform.js" async></script>
+              <div class="elfsight-app-bc69b34b-e033-4438-9fbe-60a257e8b92f" data-elfsight-app-lazy></div>
+            `,
+          }}
+        />
       </section>
 
       {/* Mappa */}
@@ -156,7 +143,7 @@ export default function HomePage() {
         <h2 className="text-3xl md:text-4xl font-semibold mb-6">Dove ci troviamo</h2>
         <div className="w-full max-w-5xl mx-auto">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.3475361245643!2d9.047725715027876!3d39.55879977947226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e7a02c3f0cbe31%3A0x123456789abcdef!2sCB%20Pneus%20Senorb%C3%AC!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!2d..."
             width="100%"
             height="400"
             allowFullScreen=""
