@@ -1,14 +1,11 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-
-const Button = ({ children, ...props }) => (
-  <button
-    {...props}
-    className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl"
-  >
-    {children}
-  </button>
-);
+import { Button } from "@/components/ui/button";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/autoplay';
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
 
 export default function HomePage() {
   useEffect(() => {
@@ -41,7 +38,7 @@ export default function HomePage() {
           transition={{ delay: 1 }}
           className="mt-8"
         >
-          <Button>
+          <Button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
             Prenota ora
           </Button>
         </motion.div>
@@ -103,6 +100,54 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* Galleria scorrevole */}
+      <section className="px-6 py-20 bg-gray-100">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">La nostra officina</h2>
+          <p className="text-lg mb-10">Scopri il nostro ambiente, le attrezzature moderne e i nostri partner.</p>
+
+          <Swiper
+            modules={[Autoplay, EffectCoverflow]}
+            effect="coverflow"
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView="auto"
+            loop={true}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 100,
+              modifier: 2.5,
+              slideShadows: false,
+            }}
+            className="max-w-5xl"
+          >
+            {[
+              'gallery/pneumatico1.jpg',
+              'gallery/officina1.jpg',
+              'gallery/goodyear.jpg',
+              'gallery/lavorazione.jpg',
+              'gallery/pneumatici-esposti.jpg'
+            ].map((src, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={`/${src}`}
+                  alt={`Slide ${idx + 1}`}
+                  className="rounded-xl shadow-lg w-full h-64 object-cover"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+      </section>
+
       {/* Prenotazione */}
       <section className="px-6 py-16 bg-gray-50 text-center">
         <motion.div
@@ -113,7 +158,7 @@ export default function HomePage() {
         >
           <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 mb-6">Prenota la tua revisione</h2>
           <a href="https://www.revisionionline.com/it/centri-revisione/prenota/cagliari-senorbi/cbpneus-senorbi" target="_blank" rel="noopener noreferrer">
-            <Button>
+            <Button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
               Vai al portale RevisioniOnline
             </Button>
           </a>
