@@ -101,7 +101,7 @@ export default function HomePage() {
               <li>Controllo freni e sospensioni</li>
             </ul>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Meccanica generale</li>
+              <li>Meccanica leggera</li>
               <li>Cambio olio</li>
               <li>Climatizzazione</li>
               <li>Installazione ganci traino</li>
