@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
@@ -11,24 +11,20 @@ export default function HomePage() {
     document.title = "CB Pneus - Officina a Senorbì";
   }, []);
 
-  // Animazione logo in base allo scroll
-  const { scrollY } = useScroll();
-  const scale = useTransform(scrollY, [0, 200], [1, 0.5]);
-  const x = useTransform(scrollY, [0, 200], [0, 200]);
-  const y = useTransform(scrollY, [0, 200], [0, -80]);
-
   return (
     <div className="bg-white text-neutral-900 font-sans">
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center items-center px-6 text-center bg-gradient-to-b from-white to-gray-100 relative overflow-hidden">
+      <section className="min-h-screen flex flex-col justify-center items-center px-6 text-center bg-gradient-to-b from-white to-gray-100">
         <motion.img
           src="/logo.C.BpneusbozzaNeroRosso.png"
           alt="CB Pneus Logo"
-          style={{ scale, x, y }}
-          className="w-64 mb-6 fixed top-10 left-1/2 transform -translate-x-1/2 z-50"
+          className="w-64 mb-6"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
         />
         <motion.h1
-          className="text-3xl md:text-5xl text-neutral-900 font-semibold mt-48"
+          className="text-3xl md:text-5xl text-neutral-900 font-semibold"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -73,6 +69,109 @@ export default function HomePage() {
             </SwiperSlide>
           ))}
         </Swiper>
+      </section>
+
+      {/* Chi Siamo */}
+      <section className="px-6 py-16 bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">Chi siamo</h2>
+          <p className="text-center max-w-3xl mx-auto text-lg">
+            C.B. Pneus è l’officina di riferimento a Senorbì per la manutenzione dei tuoi veicoli.
+            Con oltre 40 anni di esperienza e un team altamente qualificato, offriamo professionalità, velocità e attenzione al dettaglio.
+            Siamo parte del programma Superservice di Goodyear, garanzia di qualità e affidabilità.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Servizi */}
+      <section className="px-6 py-16 bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">Servizi</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-lg">
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Gommista plurimarca</li>
+              <li>Assetto completo 3D</li>
+              <li>Centro revisioni</li>
+              <li>Controllo freni e sospensioni</li>
+            </ul>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Meccanica leggera</li>
+              <li>Cambio olio</li>
+              <li>Climatizzazione</li>
+              <li>Installazione ganci traino</li>
+            </ul>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Recensioni Google */}
+      <section className="px-6 py-16 bg-white text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">Recensioni Google</h2>
+        <div className="elfsight-app-bc69b34b-e033-4438-9fbe-60a257e8b92f" data-elfsight-app-lazy></div>
+      </section>
+
+      {/* Mappa Google corretta */}
+      <section className="px-6 py-16 bg-gray-100 text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-6">Dove ci troviamo</h2>
+        <div className="w-full max-w-5xl mx-auto">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.2879966748624!2d9.131925815479252!3d39.55901597947317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d8becc70c6a541%3A0xf40b46e80ae6ecfb!2sVia%20Alessandro%20Manzoni%2C%206%2C%2009040%20Senorb%C3%AC%20SU!5e0!3m2!1sit!2sit!4v1717175555555!5m2!1sit!2sit"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-xl shadow-lg border"
+          ></iframe>
+        </div>
+      </section>
+
+      {/* Prenotazione */}
+      <section id="prenota" className="px-6 py-16 bg-gray-100 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">Prenota la tua revisione</h2>
+          <a
+            href="https://www.revisionionline.com/it/centri-revisione/prenota/cagliari-senorbi/cbpneus-senorbi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
+              Vai al portale RevisioniOnline
+            </button>
+          </a>
+        </motion.div>
+      </section>
+
+      {/* Contatti */}
+      <section className="px-6 py-16 bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Contattaci</h2>
+          <p>📍 Via Alessandro Manzoni, 6 - 09040 Senorbì (SU)</p>
+          <p>📞 392 2329341</p>
+          <p>✉️ cbpneusrls@gmail.com</p>
+        </motion.div>
       </section>
     </div>
   );
