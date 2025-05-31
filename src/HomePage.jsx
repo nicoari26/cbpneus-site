@@ -90,4 +90,74 @@ export default function HomePage() {
         >
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">Chi siamo</h2>
           <p className="text-center max-w-3xl mx-auto text-lg">
-            C.B. Pneus è l’officina di riferimento a Senorbì per la manutenzione dei tuoi v
+            C.B. Pneus è l’officina di riferimento a Senorbì per la manutenzione dei tuoi veicoli. Con oltre 40 anni di esperienza e un team altamente qualificato, offriamo professionalità, velocità e attenzione al dettaglio.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Servizi */}
+      <section className="px-6 py-16 bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">Servizi</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto text-lg">
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Gommista plurimarca</li>
+              <li>Assetto completo 3D</li>
+              <li>Centro revisioni</li>
+              <li>Controllo freni e sospensioni</li>
+            </ul>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Meccanica leggera</li>
+              <li>Cambio olio</li>
+              <li>Climatizzazione</li>
+              <li>Installazione ganci traino</li>
+            </ul>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Prenotazione */}
+      <section id="prenota" className="px-6 py-16 bg-gray-100 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">Prenota la tua revisione</h2>
+          <a
+            href="https://www.revisionionline.com/it/centri-revisione/prenota/cagliari-senorbi/cbpneus-senorbi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
+              Vai al portale RevisioniOnline
+            </button>
+          </a>
+        </motion.div>
+      </section>
+
+      {/* Contatti */}
+      <section className="px-6 py-16 bg-white">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Contattaci</h2>
+          <p>📍 Via Alessandro Manzoni, 6 - 09040 Senorbì (SU)</p>
+          <p>📞 392 2329341</p>
+          <p>✉️ cbpneusrls@gmail.com</p>
+        </motion.div>
+      </section>
+    </div>
+  );
+}
+
