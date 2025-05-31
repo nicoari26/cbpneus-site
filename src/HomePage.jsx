@@ -12,22 +12,36 @@ export default function HomePage() {
   }, []);
 
   const { scrollY } = useScroll();
-  const scale = useTransform(scrollY, [0, 300], [1, 0.4]);
-  const x = useTransform(scrollY, [0, 300], [0, 600]);
-  const y = useTransform(scrollY, [0, 300], [0, -250]);
-  const blur = useTransform(scrollY, [0, 100, 200, 300], ["0px", "2px", "1px", "0px"]);
+  const scale = useTransform(scrollY, [0, 200], [1, 0.35]);
+  const x = useTransform(scrollY, [0, 200], ["-50%", "0%"]);
+  const y = useTransform(scrollY, [0, 200], ["0%", "-90%"]);
 
   return (
-    <div className="bg-white text-neutral-900 font-sans">
-      {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center items-center px-6 text-center bg-gradient-to-b from-white to-gray-100 relative overflow-hidden">
-        <motion.img
+    <div className="bg-white text-neutral-900 font-sans relative">
+      {/* Logo dinamico */}
+      <motion.div
+        style={{
+          position: "fixed",
+          top: "2rem",
+          left: "50%",
+          translateX: x,
+          translateY: y,
+          scale: scale,
+          zIndex: 50,
+          transition: "all 0.4s ease-in-out",
+          filter: "blur(0.3px)",
+        }}
+        transition={{ type: "spring", stiffness: 60, damping: 20 }}
+      >
+        <img
           src="/logo.C.BpneusbozzaNeroRosso.png"
           alt="CB Pneus Logo"
-          style={{ scale, x, y, filter: blur }}
-          className="w-64 mb-6 fixed top-10 left-1/2 transform -translate-x-1/2 z-50"
-          transition={{ type: "spring", stiffness: 40, damping: 20 }}
+          className="w-64 max-w-xs"
         />
+      </motion.div>
+
+      {/* Hero Section */}
+      <section className="min-h-screen flex flex-col justify-center items-center px-6 text-center bg-gradient-to-b from-white to-gray-100">
         <motion.h1
           className="text-3xl md:text-5xl text-neutral-900 font-semibold mt-48"
           initial={{ opacity: 0 }}
