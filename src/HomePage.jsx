@@ -60,7 +60,7 @@ export default function HomePage() {
               <img
                 src={`/${img}`}
                 alt={`Galleria ${index + 1}`}
-                className="w-full h-auto object-cover transition-opacity duration-1000"
+                className="w-full h-auto object-cover transition-opacity duration-[2000ms]"
               />
             </SwiperSlide>
           ))}
