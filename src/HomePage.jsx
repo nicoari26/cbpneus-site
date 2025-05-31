@@ -67,6 +67,23 @@ export default function HomePage() {
         </Swiper>
       </section>
 
+      {/* Superservice Goodyear */}
+      <section className="px-6 py-16 bg-gray-100 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Superservice Goodyear</h2>
+          <p className="text-lg">
+            Siamo parte del network <strong>Superservice Goodyear</strong>: una rete di officine selezionate
+            che garantisce al cliente standard elevati di qualità, sicurezza e professionalità su tutto il territorio nazionale.
+          </p>
+        </motion.div>
+      </section>
+
       {/* Chi Siamo */}
       <section className="px-6 py-16 bg-white">
         <motion.div
@@ -108,42 +125,73 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Prenotazione */}
-      <section id="prenota" className="px-6 py-16 bg-gray-100 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6">Prenota la tua revisione</h2>
-          <a
-            href="https://www.revisionionline.com/it/centri-revisione/prenota/cagliari-senorbi/cbpneus-senorbi"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
-              Vai al portale RevisioniOnline
-            </button>
-          </a>
-        </motion.div>
+      {/* Recensioni Google */}
+      <section className="px-6 py-16 bg-white">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">Recensioni Google</h2>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              name: "Giuseppe M.",
+              text: "Personale gentilissimo e super professionale. Ci tornerò sicuramente!",
+            },
+            {
+              name: "Laura P.",
+              text: "Mi hanno salvato da una foratura a fine giornata. Servizio top!",
+            },
+            {
+              name: "Alessandro R.",
+              text: "Prezzi onesti, puntualità e cortesia. Consigliato a tutti!",
+            },
+          ].map((review, i) => (
+            <div key={i} className="bg-gray-100 rounded-xl p-4 shadow text-left">
+              <p className="font-semibold">{review.name}</p>
+              <p className="text-sm mt-2">"{review.text}"</p>
+            </div>
+          ))}
+        </div>
       </section>
 
-      {/* Contatti */}
-      <section className="px-6 py-16 bg-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Contattaci</h2>
-          <p>📍 Via Alessandro Manzoni, 6 - 09040 Senorbì (SU)</p>
-          <p>📞 392 2329341</p>
-          <p>✉️ cbpneusrls@gmail.com</p>
-        </motion.div>
+      {/* Mappa */}
+      <section className="px-6 py-16 bg-gray-100 text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-6">Dove ci troviamo</h2>
+        <div className="w-full max-w-5xl mx-auto">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.3475361245643!2d9.047725715027876!3d39.55879977947226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e7a02c3f0cbe31%3A0x123456789abcdef!2sCB%20Pneus%20Senorb%C3%AC!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+            width="100%"
+            height="400"
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-xl shadow-lg border"
+          ></iframe>
+        </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-black text-white px-6 py-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Orari di apertura</h3>
+            <p>Lun - Ven: 8:30 - 13:00 / 15:00 - 19:00</p>
+            <p>Sabato: 8:30 - 13:00</p>
+            <p>Domenica: chiuso</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Contatti</h3>
+            <p>📍 Via Alessandro Manzoni, 6 - Senorbì (SU)</p>
+            <p>📞 392 2329341</p>
+            <p>✉️ cbpneusrls@gmail.com</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Seguici</h3>
+            <div className="flex justify-center md:justify-start gap-4 mt-2">
+              <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+          </div>
+        </div>
+        <p className="text-center mt-8 text-sm text-gray-400">© {new Date().getFullYear()} C.B. Pneus - Tutti i diritti riservati</p>
+      </footer>
     </div>
   );
 }
