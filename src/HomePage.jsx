@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow } from "swiper/modules";
+import { Autoplay, EffectFade } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/effect-coverflow";
+import "swiper/css/effect-fade";
 
 export default function HomePage() {
   useEffect(() => {
@@ -49,31 +49,18 @@ export default function HomePage() {
       <section className="px-6 py-16 bg-white">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">La nostra officina</h2>
         <Swiper
-          modules={[Autoplay, EffectCoverflow]}
-          effect="coverflow"
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView="auto"
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 200,
-            modifier: 2.5,
-            slideShadows: true,
-          }}
-          className="w-full max-w-6xl mx-auto px-4"
+          className="w-full max-w-6xl mx-auto rounded-xl overflow-hidden shadow-lg"
         >
           {["g1.jpg", "g2.jpg", "g3.jpg", "g4.jpg"].map((img, index) => (
-            <SwiperSlide key={index} className="w-[80%] md:w-[600px]">
+            <SwiperSlide key={index}>
               <img
                 src={`/${img}`}
                 alt={`Galleria ${index + 1}`}
-                className="rounded-xl shadow-xl object-cover w-full h-auto"
+                className="w-full h-auto object-cover transition-opacity duration-1000"
               />
             </SwiperSlide>
           ))}
@@ -160,4 +147,3 @@ export default function HomePage() {
     </div>
   );
 }
-
