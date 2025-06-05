@@ -8,15 +8,6 @@ import "swiper/css/effect-fade";
 export default function HomePage() {
   useEffect(() => {
     document.title = "CB Pneus - Officina a Senorbì";
-
-    // Inizializza lo script di Elfsight se non già presente
-    const existingScript = document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]');
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://static.elfsight.com/platform/platform.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
   }, []);
 
   return (
@@ -45,7 +36,11 @@ export default function HomePage() {
           transition={{ delay: 1 }}
           className="mt-8"
         >
-          <a href="#prenota">
+          <a
+            href="https://wa.me/393922329341"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
               Prenota ora
             </button>
@@ -64,7 +59,6 @@ export default function HomePage() {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop={true}
           effect="fade"
-          speed={1500}
           className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg"
         >
           {["g1.jpg", "g2.jpg", "g3.jpg", "g4.jpg"].map((img, index) => (
@@ -89,7 +83,7 @@ export default function HomePage() {
         >
           <h2 className="text-3xl md:text-4xl font-semibold text-center mb-4">Chi siamo</h2>
           <p className="text-center max-w-3xl mx-auto text-lg">
-            C.B. Pneus è l’officina di riferimento a Senorbì per la manutenzione dei tuoi veicoli. Con oltre 40 anni di esperienza e un team altamente qualificato, offriamo professionalità, velocità e attenzione al dettaglio. Facciamo parte del programma Superservice di Goodyear.
+            C.B. Pneus è l’officina di riferimento a Senorbì per la manutenzione dei tuoi veicoli. Con oltre 40 anni di esperienza e un team altamente qualificato, offriamo professionalità, velocità e attenzione al dettaglio.
           </p>
         </motion.div>
       </section>
@@ -120,67 +114,36 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* Prenotazione */}
-      <section id="prenota" className="px-6 py-16 bg-gray-100 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6">Prenota la tua revisione</h2>
-          <a
-            href="https://www.revisionionline.com/it/centri-revisione/prenota/cagliari-senorbi/cbpneus-senorbi"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
-              Vai al portale RevisioniOnline
-            </button>
-          </a>
-        </motion.div>
-      </section>
-
       {/* Recensioni */}
       <section className="px-6 py-16 bg-white text-center">
-        <h2 className="text-3xl md:text-4xl font-semibold mb-10">Cosa dicono i nostri clienti</h2>
-        <div className="elfsight-app-bc69b34b-e033-4438-9fbe-60a257e8b92f" data-elfsight-app-lazy></div>
-      </section>
-
-      {/* Contatti */}
-      <section className="px-6 py-16 bg-white text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Contattaci</h2>
-          <p>📍 Via Alessandro Manzoni, 6 - 09040 Senorbì (SU)</p>
-          <p>📞 392 2329341</p>
-          <p>✉️ cbpneusrls@gmail.com</p>
-        </motion.div>
-      </section>
-
-      {/* Mappa */}
-      <section className="px-6 pb-16">
-        <div className="w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-lg">
-          <iframe
-            title="CB Pneus Senorbì"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3111.3521299913223!2d9.100675215256938!3d39.535156679482074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12dc2a29ffcd01b7%3A0x6fbd49aa44cfb5d4!2sVia%20Alessandro%20Manzoni%2C%206%2C%2009040%20Senorb%C3%AC%20SU!5e0!3m2!1sit!2sit!4v1717580436000!5m2!1sit!2sit"
-            width="100%"
-            height="400"
-            allowFullScreen=""
-            loading="lazy"
-            className="border-0 w-full"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-10">Recensioni Google</h2>
+        <div className="flex justify-center">
+          <div className="w-full max-w-3xl">
+            <script src="https://static.elfsight.com/platform/platform.js" async></script>
+            <div className="elfsight-app-bc69b34b-e033-4438-9fbe-60a257e8b92f" data-elfsight-app-lazy></div>
+          </div>
         </div>
       </section>
 
+      {/* Mappa */}
+      <section className="px-6 py-16 bg-gray-100 text-center">
+        <h2 className="text-3xl md:text-4xl font-semibold mb-6">Dove siamo</h2>
+        <iframe
+          className="w-full max-w-4xl h-96 mx-auto rounded-xl shadow-lg"
+          loading="lazy"
+          allowFullScreen
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.1118748596557!2d9.131538175867367!3d39.56182210507845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12dc89c1400fdd8f%3A0x870e143f32c5f04c!2sVia%20Alessandro%20Manzoni%2C%206%2C%2009040%20Senorb%C3%AC%20SU!5e0!3m2!1sit!2sit!4v1717588030999!5m2!1sit!2sit"
+        ></iframe>
+      </section>
+
       {/* Footer */}
-      <footer className="bg-gray-100 py-6 text-center text-sm text-neutral-700">
-        © {new Date().getFullYear()} C.B. Pneus - Tutti i diritti riservati
+      <footer className="bg-gray-900 text-white py-8 px-6 text-center">
+        <p className="text-lg font-semibold">CB Pneus - Senorbì</p>
+        <p>Via Alessandro Manzoni, 6 - 09040 Senorbì (SU)</p>
+        <p>📞 392 2329341 | ✉️ cbpneusrls@gmail.com</p>
+        <p className="mt-2 text-sm text-gray-400">
+          Affiliato al programma Superservice di Goodyear
+        </p>
       </footer>
     </div>
   );
