@@ -114,6 +114,27 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* Prenotazione Revisioni */}
+      <section id="prenota" className="px-6 py-16 bg-gray-100 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6">Prenota la tua revisione</h2>
+          <a
+            href="https://www.revisionionline.com/it/centri-revisione/prenota/cagliari-senorbi/cbpneus-senorbi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-black hover:bg-neutral-800 text-white px-6 py-3 text-lg rounded-2xl shadow-xl">
+              Vai al portale RevisioniOnline
+            </button>
+          </a>
+        </motion.div>
+      </section>
+
       {/* Recensioni */}
       <section className="px-6 py-16 bg-white text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-10">Recensioni Google</h2>
