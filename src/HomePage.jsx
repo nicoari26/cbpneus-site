@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 
@@ -11,39 +11,20 @@ export default function HomePage() {
     document.title = "CB Pneus - Officina a Senorbì";
   }, []);
 
-  const { scrollY } = useScroll();
-  const scale = useTransform(scrollY, [0, 200], [1, 0.35]);
-  const x = useTransform(scrollY, [0, 200], ["-50%", "0%"]);
-  const y = useTransform(scrollY, [0, 200], ["0%", "-90%"]);
-
   return (
-    <div className="bg-white text-neutral-900 font-sans relative">
-      {/* Logo dinamico */}
-      <motion.div
-        style={{
-          position: "fixed",
-          top: "2rem",
-          left: "50%",
-          translateX: x,
-          translateY: y,
-          scale: scale,
-          zIndex: 50,
-          transition: "all 0.4s ease-in-out",
-          filter: "blur(0.3px)",
-        }}
-        transition={{ type: "spring", stiffness: 60, damping: 20 }}
-      >
-        <img
-          src="/logo.C.BpneusbozzaNeroRosso.png"
-          alt="CB Pneus Logo"
-          className="w-64 max-w-xs"
-        />
-      </motion.div>
-
+    <div className="bg-white text-neutral-900 font-sans">
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center items-center px-6 text-center bg-gradient-to-b from-white to-gray-100">
+        <motion.img
+          src="/logo.C.BpneusbozzaNeroRosso.png"
+          alt="CB Pneus Logo"
+          className="w-64 mb-6"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        />
         <motion.h1
-          className="text-3xl md:text-5xl text-neutral-900 font-semibold mt-48"
+          className="text-3xl md:text-5xl text-neutral-900 font-semibold"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
